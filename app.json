@@ -1,0 +1,41 @@
+{
+  "expo": {
+    "name": "BuyPuppy",
+    "slug": "buy-puppy",
+    "version": "1.0.1",
+    "orientation": "portrait",
+    "icon": "./assets/logo.png",
+    "userInterfaceStyle": "light",
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/logo.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.rajan_mishra.buypuppy"
+    },
+    "splash": {
+      "image": "./assets/Splash2.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#37474F"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.buypuppy.in"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "909d62bf-3f08-4743-a8fb-f12942d431ee"
+      }
+    },
+    "owner": "rajan_mishra"
+  }
+}
