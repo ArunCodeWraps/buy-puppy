@@ -9,10 +9,6 @@ import {
 import React, { useState, useEffect } from "react";
 import color from "../../assets/theme/color";
 import VioletButton from "../../component/VioletButton";
-import CheckoutAddress from "./CheckoutAddress";
-import CheckoutPayment from "./CheckoutPayment";
-import Header from "../../component/Header";
-import BackButton from "../../component/Backbutton";
 import { SIZES } from "../../assets/theme/theme";
 import { connect, useDispatch, useSelector } from "react-redux";
 import * as qs from "qs";
@@ -22,7 +18,6 @@ import { emptyCart } from "../../store/cart/cartAction";
 import { showMessage } from "react-native-flash-message";
 import BackHeader from "../../component/buttons/BackHeader";
 import { TouchableOpacity } from "react-native";
-import { CheckBox } from "react-native-elements";
 import { useTranslation } from "react-i18next";
 
 const ManageCheckout = ({ navigation }) => {
@@ -90,34 +85,40 @@ const ManageCheckout = ({ navigation }) => {
     address_id: addresschecked,
   });
 
-  console.log("placedata", placeOrder_Data);
   const PlaceOrder = () => {
-    // axios
-    //   .post(
-    //     "https://codewraps.in/beypuppy/appdata/webservice.php",
-    //     placeOrder_Data,
-    //     { headers: placeOrder_Header }
-    //   )
-    //   .then(function (response) {
-    //     console.log("place order res", response);
-    //     if (response.data.success == 1) {
-    //       dispatch(emptyCart());
-    //       showMessage({
-    //         message: `${t("success")}`,
-    //         description: response.data.message,
-    //         type: "default",
-    //         backgroundColor: color.green,
-    //       });
-    //       navigation.navigate("OrderSuccess");
-    //     } else {
-    //       showMessage({
-    //         message: `${t("Fail")}`,
-    //         description: response.data.message,
-    //         type: "default",
-    //         backgroundColor: "red",
-    //       });
-    //     }
-    //   });
+    if (paymentchecked === "cod") {
+      console.log("placedata", placeOrder_Data);
+      console.log("placedata", paymentchecked);
+      axios
+        .post(
+          "https://codewraps.in/beypuppy/appdata/webservice.php",
+          placeOrder_Data,
+          { headers: placeOrder_Header }
+        )
+        .then(function (response) {
+          console.log("place order res", response);
+          if (response.data.success == 1) {
+            dispatch(emptyCart());
+            showMessage({
+              message: `${t("success")}`,
+              description: response.data.message,
+              type: "default",
+              backgroundColor: color.green,
+            });
+            navigation.navigate("OrderSuccess");
+          } else {
+            showMessage({
+              message: `${t("Fail")}`,
+              description: response.data.message,
+              type: "default",
+              backgroundColor: "red",
+            });
+          }
+        });
+    } else {
+      console.log("placedata", placeOrder_Data);
+      console.log("placedata1", paymentchecked);
+    }
   };
 
   const renderPages = () => {
