@@ -1,4 +1,5 @@
 import {
+  Linking,
   Platform,
   SafeAreaView,
   ScrollView,
@@ -118,6 +119,10 @@ const ManageCheckout = ({ navigation }) => {
     } else {
       console.log("placedata", placeOrder_Data);
       console.log("placedata1", paymentchecked);
+      //https://stackoverflow.com/questions/51259156/react-native-open-link-in-browser-and-return-to-app
+      Linking.openURL(
+        "https://www.codewraps.in/beypuppy/payment.php?order_id=1"
+      );
     }
   };
 
