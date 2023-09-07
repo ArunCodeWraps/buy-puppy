@@ -117,12 +117,34 @@ const ManageCheckout = ({ navigation }) => {
           }
         });
     } else {
-      console.log("placedata", placeOrder_Data);
-      console.log("placedata1", paymentchecked);
-      //https://stackoverflow.com/questions/51259156/react-native-open-link-in-browser-and-return-to-app
-      Linking.openURL(
-        "https://www.codewraps.in/beypuppy/payment.php?order_id=1"
-      );
+      axios
+        .post(
+          "https://codewraps.in/beypuppy/appdata/webservice.php",
+          placeOrder_Data,
+          { headers: placeOrder_Header }
+        )
+        .then(function (response) {
+          console.log("place order res", response.data.order_id);
+          if (response.data.success == 1) {
+            // dispatch(emptyCart());
+            // showMessage({
+            //   message: `${t("success")}`,
+            //   description: response.data.message,
+            //   type: "default",
+            //   backgroundColor: color.green,
+            // });
+            navigation.navigate("OnlinePayment", {
+              order_id: response.data.order_id,
+            });
+          } else {
+            showMessage({
+              message: `${t("Fail")}`,
+              description: response.data.message,
+              type: "default",
+              backgroundColor: "red",
+            });
+          }
+        });
     }
   };
 
@@ -264,6 +286,7 @@ const ManageCheckout = ({ navigation }) => {
   };
 
   const handleBackpress = () => {
+    console.log("sunnnn", data);
     if (data === 0) {
       navigation.goBack();
     } else if (data === 1) {

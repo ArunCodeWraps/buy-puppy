@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "BuyPuppy",
-    "slug": "buy-puppy",
+    "slug": "buypuppy",
     "version": "1.0.1",
     "orientation": "portrait",
     "icon": "./assets/logo.png",
@@ -33,9 +33,9 @@
     },
     "extra": {
       "eas": {
-        "projectId": "909d62bf-3f08-4743-a8fb-f12942d431ee"
+        "projectId": "3befc44e-3b40-492b-9bdb-b2a879da2262"
       }
     },
-    "owner": "rajan_mishra"
+    "owner": "skandsolution"
   }
 }

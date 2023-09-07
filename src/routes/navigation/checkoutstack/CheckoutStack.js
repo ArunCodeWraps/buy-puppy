@@ -6,6 +6,7 @@ import CheckoutScreen from "../../../Screens/CheckoutScreen";
 import OrderSuccess from "../../../Screens/checkout/OrderSuccess";
 import ManageCheckout from "../../../Screens/checkout/ManageCheckout";
 import CheckoutPayment from "../../../Screens/checkout/CheckoutPayment";
+import OnlinePayment from "../../../Screens/checkout/OnlinePayment";
 const Stack = createStackNavigator();
 
 export default function CheckoutStack() {
@@ -14,6 +15,7 @@ export default function CheckoutStack() {
       <Stack.Screen name="CheckoutScreen" component={CheckoutScreen} />
       <Stack.Screen name="CheckoutAddress" component={CheckoutAddress} />
       <Stack.Screen name="OrderSuccess" component={OrderSuccess} />
+      <Stack.Screen name="OnlinePayment" component={OnlinePayment} />
       <Stack.Screen name="ManageCheckout" component={ManageCheckout} />
       <Stack.Screen name="CheckoutPayment" component={CheckoutPayment} />
       {/* <Stack.Screen name="Notificatio nScreen" component={NotificationScreen} /> */}
